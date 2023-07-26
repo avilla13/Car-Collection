@@ -4,7 +4,7 @@ cars = [
    {'make': 'Ford', 'model': 'Mustang', 'year': '1967','engine': 'V8' },
    {'make': 'Dodge', 'model': 'Charger', 'year': '1969','engine': 'V8' },
    {'make': 'Dodge', 'model': 'Challenger', 'year': '1970','engine': 'V8' },
-   {'make': 'Chevrolet', 'model': 'Camaro', 'year': '1969','engine': 'V8' }
+   {'make': 'Chevrolet', 'model': 'Camaro', 'year': '1969','engine': 'V8' },
    {'make': 'Buick', 'model': 'Grand National', 'year': '1987','engine': 'V6' }
 ]
 
