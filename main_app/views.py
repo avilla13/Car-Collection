@@ -4,11 +4,7 @@ from .models import Car
 
 # cars list was only used for initial app set up
 # cars = [
-#    {'make': 'Ford', 'model': 'Mustang', 'year': '1967','engine': 'V8' },
-#    {'make': 'Dodge', 'model': 'Charger', 'year': '1969','engine': 'V8' },
-#    {'make': 'Dodge', 'model': 'Challenger', 'year': '1970','engine': 'V8' },
-#    {'make': 'Chevrolet', 'model': 'Camaro', 'year': '1969','engine': 'V8' },
-#    {'make': 'Buick', 'model': 'Grand National', 'year': '1987','engine': 'V6' }
+#    {'make': 'Ford', 'model': 'Mustang', 'year': '1967','engine': 'V8' }
 # ]
 
 # Define the home view
@@ -32,3 +28,13 @@ def cars_detail(request, car_id):
 class CarCreate(CreateView):
    model = Car
    fields = '__all__'
+
+class CarUpdate(UpdateView):
+   model = Car
+   fields = '__all__'
+
+class CarDelete(DeleteView):
+   model = Car
+   # Need to overwrite the redirect path like this:
+   success_url = '/cars'
+
