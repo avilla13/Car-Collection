@@ -1,12 +1,14 @@
 from django.shortcuts import render
+from .models import Car
 
-cars = [
-   {'make': 'Ford', 'model': 'Mustang', 'year': '1967','engine': 'V8' },
-   {'make': 'Dodge', 'model': 'Charger', 'year': '1969','engine': 'V8' },
-   {'make': 'Dodge', 'model': 'Challenger', 'year': '1970','engine': 'V8' },
-   {'make': 'Chevrolet', 'model': 'Camaro', 'year': '1969','engine': 'V8' },
-   {'make': 'Buick', 'model': 'Grand National', 'year': '1987','engine': 'V6' }
-]
+# cars list was only used for initial app set up
+# cars = [
+#    {'make': 'Ford', 'model': 'Mustang', 'year': '1967','engine': 'V8' },
+#    {'make': 'Dodge', 'model': 'Charger', 'year': '1969','engine': 'V8' },
+#    {'make': 'Dodge', 'model': 'Challenger', 'year': '1970','engine': 'V8' },
+#    {'make': 'Chevrolet', 'model': 'Camaro', 'year': '1969','engine': 'V8' },
+#    {'make': 'Buick', 'model': 'Grand National', 'year': '1987','engine': 'V6' }
+# ]
 
 # Define the home view
 def home(request):
@@ -17,6 +19,7 @@ def about(request):
     return render(request, 'about.html')
 
 def cars_index(request):
+   cars = Car.objects.all()
    return render(request, 'cars/index.html', {
       'cars': cars
    })
