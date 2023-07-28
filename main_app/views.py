@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Car
-
+from .forms import ServiceForm
 # cars list was only used for initial app set up
 # cars = [
 #    {'make': 'Ford', 'model': 'Mustang', 'year': '1967','engine': 'V8' }
@@ -23,7 +23,13 @@ def cars_index(request):
 
 def cars_detail(request, car_id):
    car = Car.objects.get(id=car_id)
-   return render(request, 'cars/detail.html', {'car': car})
+   # Instantiate ServiceForm to be rendered in the template
+   service_form = ServiceForm()
+   return render(request, 'cars/detail.html', {
+      # Include the car and service_form in the context
+      'car': car,
+      'service_form': service_form
+    })
 
 class CarCreate(CreateView):
    model = Car
