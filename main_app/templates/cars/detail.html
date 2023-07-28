@@ -20,7 +20,7 @@
   </div>
     <!-- New Markup Below for Service -->
   <div class="col s6">
-    <form action="#" method="POST">
+    <form action="{% url 'add_service' car.id %}" method="POST">
       {% csrf_token %}
       <!-- Render the inputs from ServiceForm -->
       {{ service_form.as_p }}
