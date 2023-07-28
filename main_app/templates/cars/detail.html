@@ -28,13 +28,18 @@
     </form>
     <table class="striped">
       <thead>
-        <tr><th>Date</th><th>Service Type</th></tr>
+        <tr>
+          <th>Date</th>
+          <th>Service Type</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         {% for service in car.service_set.all %}
           <tr>
             <td>{{service.date}}</td>
             <td>{{service.get_service_display}}</td>
+            <td>{{service.description}}</td>
           </tr>
         {% endfor %}
       </tbody>
