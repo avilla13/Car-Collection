@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Car
+from django.views.generic import ListView, DetailView
+from .models import Car, Feature
 from .forms import ServiceForm
 # cars list was only used for initial app set up
 # cars = [
@@ -55,3 +56,21 @@ def add_service(request, car_id):
     new_service.car_id = car_id
     new_service.save()
   return redirect('detail', car_id=car_id)
+
+class FeatureList(ListView):
+  model = Feature
+
+class FeatureDetail(DetailView):
+  model = Feature
+
+class FeatureCreate(CreateView):
+  model = Feature
+  fields = '__all__'
+
+class FeatureUpdate(UpdateView):
+  model = Feature
+  fields = ['name']
+
+class FeatureDelete(DeleteView):
+  model = Feature
+  success_url = '/features'
