@@ -12,6 +12,8 @@ urlpatterns = [
     path('cars/<int:car_id>/add_service', views.add_service, name='add_service'),
     # Associate a feature with a car (M:M)
     path('cars/<int:car_id>/assoc_feature/<int:feature_id>/', views.assoc_feature, name='assoc_feature'),
+    # Un-associate a feature from a car (M:M)
+    path('cars/<int:car_id>/unassoc_feature/<int:feature_id>/', views.unassoc_feature, name='unassoc_feature'),
     # Beginning of Features (M:M)
     path('features/', views.FeatureList.as_view(), name='features_index'),
     path('features/<int:pk>/', views.FeatureDetail.as_view(), name='features_detail'),

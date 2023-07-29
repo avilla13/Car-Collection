@@ -85,3 +85,7 @@ def assoc_feature(request, car_id, feature_id):
   Car.objects.get(id=car_id).features.add(feature_id)
   return redirect('detail', car_id=car_id)
 
+def unassoc_feature(request, car_id, feature_id):
+
+  Car.objects.get(id=car_id).features.remove(feature_id)
+  return redirect('detail', car_id=car_id)

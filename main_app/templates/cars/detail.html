@@ -58,8 +58,14 @@
         <div class="card">
           <div class="card-content">
             <span class="card-title">
-              <span style="color: maroon">{{ feature.name }}</span>
+              <span style="color: rgb(5, 136, 169)">{{ feature.name }}</span>
             </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'unassoc_feature' car.id feature.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Remove</button>
+            </form>
           </div>
         </div>
       {% endfor %}
@@ -92,6 +98,7 @@
       <h5>No Available Features to Add</h5>
     {% endif %}
   </div>
+  <!-- End of Available Features -->
 </div>
 
 
