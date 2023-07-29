@@ -39,7 +39,7 @@ def cars_detail(request, car_id):
 
 class CarCreate(CreateView):
    model = Car
-   fields = '__all__'
+   fields = ['make', 'model', 'year', 'engine']
 
 class CarUpdate(UpdateView):
    model = Car
