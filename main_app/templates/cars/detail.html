@@ -50,6 +50,7 @@
 <!-- Begin Feature Section -->
 <hr>
 <div class="row">
+  <!-- Begin Car's Current Features List -->
   <div class="col s6">
     <h4>Features</h4>
     {% if car.features.count %}
@@ -66,7 +67,31 @@
       <h5>No Features Listed Yet</h5>
     {% endif %}
   </div>
+  <!-- End Car's Features List -->
+
   <!-- Available Features below this line -->
+  <div class="col s6">
+    <h4>Available Features</h4>
+    {% if features.count %}
+      {% for feature in features.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span style="color: green">{{feature.name}}</span>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Available Features to Add</h5>
+    {% endif %}
+  </div>
 </div>
 
 

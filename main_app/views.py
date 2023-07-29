@@ -24,12 +24,17 @@ def cars_index(request):
 
 def cars_detail(request, car_id):
    car = Car.objects.get(id=car_id)
+   # List the features the car DOES have:
+   id_list = car.features.all().values_list('id')
+   # Now we can query for features whose ids are NOT in list using:
+   features_not_included_car = Feature.objects.exclude(id__in=id_list)
    # Instantiate ServiceForm to be rendered in the template
    service_form = ServiceForm()
    return render(request, 'cars/detail.html', {
       # Include the car and service_form in the context
       'car': car,
-      'service_form': service_form
+      'service_form': service_form,
+      'features': features_not_included_car
     })
 
 class CarCreate(CreateView):
