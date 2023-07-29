@@ -79,3 +79,9 @@ class FeatureUpdate(UpdateView):
 class FeatureDelete(DeleteView):
   model = Feature
   success_url = '/features'
+
+def assoc_feature(request, car_id, feature_id):
+  # Note: You can pass a feature's id instead of the whole feature object
+  Car.objects.get(id=car_id).features.add(feature_id)
+  return redirect('detail', car_id=car_id)
+
