@@ -43,7 +43,7 @@ class CarCreate(CreateView):
 
 class CarUpdate(UpdateView):
    model = Car
-   fields = '__all__'
+   fields = ['make', 'model', 'year', 'engine']
 
 class CarDelete(DeleteView):
    model = Car
